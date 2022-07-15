@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="PT-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>a-box-ite</title>
+
+  <!-- A-Frame 0.8.0-->
+  <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+  
+  <!-- Tone.js 0.10.0 -->
+  <script src="https://unpkg.com/tone@13.8.25/build/Tone.js"></script>
+  
+  <!-- components script -->
+  <script src="aframe-component.js"></script>
+  
+  <!-- audio script -->
+  <script src="synth-component.js"></script>
+
+</head>
+
+<body>
+  <a-scene id="myScene">
+    <a-assets>
+      <img id="bg" scr="https://cdn.glitch.com/888e3568-f163-4dea-9290-cd80953ca4b3%2Fbg-a-sky.png?v=1627929349281">
+    </a-assets>
+    
+    <!-- My Camera -->
+    <a-camera id="myCamera" position="1 10 5">
+      <a-cursor color="#CCC"></a-cursor>
+    </a-camera>
+    
+    <a-sky scr="#bg" color="black"></a-sky>
+    
+    <!-- key box k -->
+    <a-box id="keyBoxH" position="9 2 -2" key-box
+           material="color: #FC26FA; transparent: true; opacity: 0.5; side: double"
+           height="4" width="4" depth="4">
+      <a-animation
+      attribute="rotation"
+      dur="1000"
+      to="0 360 0"
+      begin="keypressed">
+      </a-animation>
+    </a-box>
+    
+    <!-- key box h -->
+    <a-box id="keyBoxJ" position="-2 2 -7" key-box
+           material="color: #FC26FA; transparent: true; opacity: 0.5; side: double"
+           height="4" width="4" depth="4">
+      <a-animation
+      attribute="rotation"
+      dur="1000"
+      to="360 0 0"
+      begin="keypressed">
+      </a-animation>
+    </a-box>
+    
+    <!-- key box j -->
+    <a-box id="keyBoxK" position="-7 2 -2" key-box
+           material="color: #FC26FA; transparent: true; opacity: 0.5; side: double"
+           height="4" width="4" depth="4">
+      <a-animation
+      attribute="rotation"
+      dur="1000"
+      to="0 0 360"
+      begin="keypressed">
+      </a-animation>
+    </a-box>
+    
+    <!-- key box l -->
+    <a-box id="keyBoxL" position="4 2 -7" key-box
+           material="color: #FC26FA; transparent: true; opacity: 0.5; side: double"
+           height="4" width="4" depth="4">
+      <a-animation
+      attribute="rotation"
+      dur="1000"
+      to="0 360 90"
+      begin="keypressed">
+      </a-animation>
+      
+    </a-box>
+    
+    <a-plane
+    position="0 -2 0"
+    rotation="-90 0 90"
+    width= "100"
+    height= "100"
+    material="src: url(https://cdn.glitch.com/888e3568-f163-4dea-9290-cd80953ca4b3%2Fpurple-grid.svg?v=1627928086284); transparent: true">
+    </a-plane>
+    
+    <!--synth component -->
+    <a-entity id="key-synth" tone-synth></a-entity>
+    
+  </a-scene>
+</body>
+</html>
